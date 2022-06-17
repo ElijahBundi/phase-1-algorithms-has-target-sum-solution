@@ -1,6 +1,31 @@
+// function hasTargetSum(array, target) {
+//   // Write your algorithm here
+//   const numbersChecked = {}
+//   for (let item of array) {
+//     let complement = target - item
+//     if (numbersChecked[complement]) return true;
+//     numbersChecked[item] = true;
+//     // console.log(numbersChecked)
+//   }
+//   return false
+// }
+
+
 function hasTargetSum(array, target) {
   // Write your algorithm here
+  const numbersChecked = new Set()
+
+  for (let item of array) {
+    let complement = target - item
+
+    if (numbersChecked.has(complement)) return true;
+
+    numbersChecked.add(item);
+    console.log(numbersChecked)
+  }
+  return false
 }
+
 
 /* 
   Write the Big O time complexity of your function here
@@ -32,3 +57,36 @@ if (require.main === module) {
 }
 
 module.exports = hasTargetSum;
+
+
+// if (require.main === module) {
+//   console.log("Expecting: true");
+//   console.log("=>", hasTargetSum([3, 8, 12, 4, 11, 7], 10));
+
+//   console.log("");
+
+//   console.log("Expecting: true");
+//   console.log("=>", hasTargetSum([22, 19, 4, 6, 30], 25));
+
+//   console.log("");
+
+//   console.log("Expecting: false");
+//   console.log("=>", hasTargetSum([1, 2, 5], 4));
+
+//   console.log("");
+
+//   console.log("");
+//   // Negative numbers?
+//   console.log("Expecting: true");
+//   console.log("=>", hasTargetSum([-7, 10, 4, 8], 3));
+
+//   console.log("");
+//   // Multiple pairs?
+//   console.log("Expecting: true");
+//   console.log("=>", hasTargetSum([1, 2, 3, 4], 5));
+
+//   console.log("");
+//   // Single numbers?
+//   console.log("Expecting: false");
+//   console.log("=>", hasTargetSum([4], 4));
+// }
